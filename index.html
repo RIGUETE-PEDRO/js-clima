@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão de temperatura</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+
+</head>
+
+<body>
+
+    <header style="text-align:center; margin: auto; margin-bottom: 20px;">
+        <h1 id="titulo-pagina" style="color:white;">Digite o nome da cidade e descubra a previsao do tempo</h1>
+        <input id="input-pagina" type="text" placeholder="digite o nome da cidade" autocomplete="off">
+        <button id="button-pagina" onclick="recebendoDadosApi()">search</button>
+    </header>
+
+    <main>
+        <div class="box-clima">
+            <div id="left-box">
+                <div id="box-principal">
+                    <div id="texto-principal">
+                        <h3 id="texto-cidade">Cidade, Estado</h3>
+                        <p id="texto-dia">dia semana, dia, mes e ano</p>
+                    </div>
+
+                    <h2 id="h2-principal">C°</h2>
+                </div>
+
+                <div id="divs-four">
+                    <div class="divs">
+                        <p>sensação térmica</p>
+                        <p id="sensacao-termica">numero</p>
+                    </div>
+
+                    <div class="divs">
+                        <p>humidade</p>
+                        <p id="humidade">numero</p>
+                    </div>
+
+                    <div class="divs">
+                        <p>vento</p>
+                        <p id="vento">numero</p>
+                    </div>
+
+                    <div class="divs">
+                        <p>precipitação</p>
+                        <p id="precipitacao">numero</p>
+                    </div>
+                </div>
+
+                <h5 style="color:white;">Previsão do dia</h5>
+                <div id="div-previsao">
+                    <div id="dia-um" class="divs-previsao">
+                        <p id="texto-um"></p>
+                        <img id="img-um" alt="">
+                        <div class="max-min">
+                            <p id="min-1"></p>
+                            <p id="max-1"></p>
+                        </div>
+
+                    </div>
+                    <div id="dia-dois" class="divs-previsao">
+                        <p id="texto-dois"></p>
+                        <img id="img-dois" alt="">
+                        <div class="max-min">
+                            <p id="min-2"></p>
+                            <p id="max-2"></p>
+                        </div>
+                    </div>
+
+                    <div id="dia-tres" class="divs-previsao">
+                        <p id="texto-tres"></p>
+                        <img id="img-tres" alt="">
+                        <div class="max-min">
+                            <p id="min-3"></p>
+                            <p id="max-3"></p>
+                        </div>
+                    </div>
+
+                    <div id="dia-quatro" class="divs-previsao">
+                        <p id="texto-quat"></p>
+                        <img id="img-quat" alt="">
+                        <div class="max-min">
+                            <p id="min-4"></p>
+                            <p id="max-4"></p>
+                        </div>
+                    </div>
+
+                    <div id="dia-cinco" class="divs-previsao">
+                        <p id="texto-cinc"></p>
+                        <img id="img-cinc" alt="">
+                        <div class="max-min">
+                            <p id="min-5"></p>
+                            <p id="max-5"></p>
+                        </div>
+                    </div>
+
+                    <div id="dia-seis" class="divs-previsao">
+                        <p id="texto-seis"></p>
+                        <img id="img-seis" alt="">
+                        <div class="max-min">
+                            <p id="min-6"></p>
+                            <p id="max-6"></p>
+                        </div>
+                    </div>
+
+                    <div id="dia-sete" class="divs-previsao">
+                        <p id="texto-sete"></p>
+                        <img id="img-sete" alt="">
+                        <div class="max-min">
+                            <p id="min-7"></p>
+                            <p id="max-7"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pesquisa">
+                <div id="test-select">
+                    <h4 style="color:white; margin-top: 10px; margin-bottom: 4px;">Escolha o dia da semana</h4>
+                    <select style="width: 10em; text-align: center;">
+                        <option value="segunda">Segunda</option>
+                        <option value="terca">Terça</option>
+                        <option value="quarta">Quarta</option>
+                        <option value="quinta">Quinta</option>
+                        <option value="sexta">Sexta</option>
+                        <option value="sabado">Sábado</option>
+                        <option value="domingo">Domingo</option>
+                    </select>
+                </div>
+
+                <ul id="lista-horas"></ul>
+            </div>
+        </div>
+
+    </main>
+
+    <footer></footer>
+
+</body>
+
+</html>
