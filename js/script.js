@@ -1,10 +1,5 @@
 "use strict"
 
-// faz as li dentro da div com select colocando cada horario do dia em cada li
-
-//////////////
-
-
 const input = document.getElementById("input-pagina");
 const botao = document.getElementById("button-pagina");
 
@@ -14,6 +9,12 @@ input.addEventListener("keydown", function (event) {
     }
 });
 
+const ul = document.getElementById("lista-horas");
+for (let i = 0; i < 24; i++) {
+    const li = document.createElement("li");
+    li.id = `hora-${i}`
+    ul.appendChild(li);
+}
 
 //receber o nome por uma api, pegar lat e long e converter para outra api onde posso pegar os dados
 async function recebendoDadosApi() {
@@ -89,6 +90,7 @@ async function recebendoDadosApi() {
 }
 
 
+//funcao para mexer com select
 async function usandoSelect() {
     let receberNome = document.getElementById("input-pagina").value;
     const nome_limpo = receberNome.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -102,7 +104,47 @@ async function usandoSelect() {
     let api2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latApi}&longitude=${longApi}&daily=temperature_2m_min,temperature_2m_max,weather_code&hourly=temperature_2m,weather_code&current=temperature_2m,relative_humidity_2m,snowfall,showers,rain,precipitation,weather_code,wind_speed_10m,is_day,apparent_temperature`);
     let dadosApi2 = await api2.json();
 
+    const select = document.getElementById("elemento-select");
 
+    for (let i = 0; i < 7; i++) {
+        let option = select.querySelector(`option[value="${i}"]`);
+        option.innerText = `${dadosApi2.daily.time[i]}`;
+
+        const data = dadosApi2.daily.time;
+        const dataHoje = new Date(`${data[i]}T00:00:00`)
+        const nomeDiaSemana = dataHoje.toLocaleDateString("pt-BR", {
+            weekday: "long"
+        });
+
+        option.innerText = nomeDiaSemana;
+    }
+
+    const times = dadosApi2.hourly.time;
+    const temps = dadosApi2.hourly.temperature_2m;
+    const climaDia = dadosApi2.hourly.weather_code;
+
+    for (let i = 0; i < 24; i++) {
+        const li = document.getElementById(`hora-${i}`);
+        li.innerHTML = "";
+
+        //creando elementos
+        const div = document.createElement('div');
+        const p = document.createElement('p');
+        const p2 = document.createElement('p');
+        const img = document.createElement('img');
+
+        // li.innerText = `${times[i]} ${temps[i]}°C `;
+        li.appendChild(img);
+        li.appendChild(div);
+        div.appendChild(p);
+        div.appendChild(p2);
+
+        //inserindo conteudo aos elementos
+        p.innerText = times[i];
+        p2.innerText = `${temps[i]}°`;
+        img.src = pegarIconeClima(climaDia[i]);
+        div.id = `div-li`;
+    }
 }
 
 //mapeando cada image de acordo com o codigo enviado pela API

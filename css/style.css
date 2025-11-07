@@ -180,4 +180,10 @@
         margin-bottom: 10px;
         padding-top: 10px;
         justify-content: space-between;
+        display: flex;
+    }
+
+    #div-li{
+        display: flex;
+        justify-content: space-between;
     }

@@ -16,7 +16,7 @@
     <header style="text-align:center; margin: auto; margin-bottom: 20px;">
         <h1 id="titulo-pagina" style="color:white;">Digite o nome da cidade e descubra a previsao do tempo</h1>
         <input id="input-pagina" type="text" placeholder="digite o nome da cidade" autocomplete="off">
-        <button id="button-pagina" onclick="recebendoDadosApi()">search</button>
+        <button id="button-pagina" onclick="recebendoDadosApi(), usandoSelect()">search</button>
     </header>
 
     <main>
@@ -124,18 +124,19 @@
             <div class="pesquisa">
                 <div id="test-select">
                     <h4 style="color:white; margin-top: 10px; margin-bottom: 4px;">Escolha o dia da semana</h4>
-                    <select style="width: 10em; text-align: center;">
+                    <select id="elemento-select" style="width: 10em; text-align: center;">
+                        <option value="0"></option>
                         <option value="1"></option>
                         <option value="2"></option>
                         <option value="3"></option>
                         <option value="4"></option>
                         <option value="5"></option>
                         <option value="6"></option>
-                        <option value="7"></option>
                     </select>
                 </div>
 
-                <ul id="lista-horas"></ul>
+                <ul id="lista-horas">
+                </ul>
             </div>
         </div>
 
