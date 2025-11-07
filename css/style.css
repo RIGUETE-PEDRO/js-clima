@@ -8,6 +8,7 @@
         margin: 25px;
         background-color: rgb(12, 12, 40);
         align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     #titulo-pagina {
@@ -82,6 +83,19 @@
         width: 600px;
     }
 
+    #test-select {
+        margin-bottom: 4%;
+    }
+
+    #elemento-select {
+        outline: none;
+        border: none;
+        background-color: rgb(82, 77, 112);
+        color: aliceblue;
+        border-radius: 2px;
+        height: 22px;
+    }
+
     #divs-four {
         gap: 10px;
         display: flex;
@@ -97,8 +111,9 @@
         border-radius: 10px;
         color: aliceblue;
         text-align: center;
-        padding-top: 12px;
-        gap: 25px;
+        padding-top: 10px;
+        gap: 20px;
+        font-size: 14px;
     }
 
     #sensacao-termica,
@@ -171,7 +186,7 @@
     li {
         color: aliceblue;
         background-color: rgb(82, 77, 112);
-        margin: 10px 10px 1px 5px;
+        margin: 10px 10px 10pxpx 10px;
         border-radius: 5px;
         height: 100px;
         text-align: center;
@@ -179,11 +194,29 @@
         flex: 0 0 40px;
         margin-bottom: 10px;
         padding-top: 10px;
-        justify-content: space-between;
         display: flex;
+        align-items: center;
+        justify-content: center;
+
     }
 
-    #div-li{
+    #div-li {
         display: flex;
-        justify-content: space-between;
+        gap: 10px;
+        margin-right: auto;
+        margin-left: 12px;
+        margin-bottom: auto;
+        margin-top: auto;
+        font-size: 15px;
+    }
+
+    #div-li img {
+        width: 20px;
+    }
+
+    #p-li {
+        margin-right: 10px;
+        margin-bottom: auto;
+        margin-top: auto;
+        font-size: 14px;
     }
