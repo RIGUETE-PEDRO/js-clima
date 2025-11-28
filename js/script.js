@@ -1,5 +1,7 @@
 "use strict"
 
+alert("Digite a cidade e o país separados por vírgula");
+
 const input = document.getElementById("input-pagina");
 const botao = document.getElementById("button-pagina");
 
@@ -14,7 +16,7 @@ for (let i = 0; i < 24; i++) {
     const li = document.createElement("li");
     li.id = `hora-${i}`
     ul.appendChild(li);
-}
+}   
 
 //receber o nome por uma api, pegar lat e long e converter para outra api onde posso pegar os dados
 async function recebendoDadosApi() {
