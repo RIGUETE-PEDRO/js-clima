@@ -32,6 +32,7 @@ async function recebendoDadosApi() {
     let api2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latApi}&longitude=${longApi}&daily=temperature_2m_min,temperature_2m_max,weather_code&hourly=temperature_2m,weather_code&current=temperature_2m,relative_humidity_2m,snowfall,showers,rain,precipitation,weather_code,wind_speed_10m,is_day,apparent_temperature`);
     let dadosApi2 = await api2.json();
 
+    usandoSelect(dadosApi,dadosApi2);
     document.getElementById("h2-principal").innerText = `${dadosApi2.current.temperature_2m}°`;
     document.getElementById("texto-cidade").innerText = `${dadosApi.results[0].name}, ${dadosApi.results[0].country} `;
 
@@ -91,18 +92,10 @@ async function recebendoDadosApi() {
     }
 }
 
-async function usandoSelect() {
-    let receberNome = document.getElementById("input-pagina").value;
-    const nome_limpo = receberNome.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-
-    let api = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${nome_limpo}&count=10&language=en&format=json`);
-    let dadosApi = await api.json();
-
-    let latApi = dadosApi.results[0].latitude;
-    let longApi = dadosApi.results[0].longitude;
+async function usandoSelect(dadosApi,dadosApi2) {
+     dadosApi = dadosApi;
     
-    let api2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latApi}&longitude=${longApi}&daily=temperature_2m_min,temperature_2m_max,weather_code&hourly=temperature_2m,weather_code&current=temperature_2m,relative_humidity_2m,snowfall,showers,rain,precipitation,weather_code,wind_speed_10m,is_day,apparent_temperature`);
-    let dadosApi2 = await api2.json();
+     dadosApi2 = dadosApi2;
 
     const select = document.getElementById("elemento-select");
 
